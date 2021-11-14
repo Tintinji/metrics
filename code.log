@@ -32,7 +32,7 @@ Notes:
       name:  <unnamed>
        log:  /Users/jiguangyuan/.ipython/stata/log_output.log
   log type:  text
- opened on:  13 Nov 2021, 21:09:42
+ opened on:  14 Nov 2021, 16:27:42
 
 . 
 . display "Hello, I am printed in Stata."  
@@ -43,7 +43,7 @@ Hello, I am printed in Stata.
       name:  <unnamed>
        log:  /Users/jiguangyuan/.ipython/stata/log_output.log
   log type:  text
- closed on:  13 Nov 2021, 21:09:42
+ closed on:  14 Nov 2021, 16:27:42
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 . 

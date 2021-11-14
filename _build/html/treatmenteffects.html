@@ -42,6 +42,8 @@
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -91,7 +93,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Introduction.html">
-   This is the game with Econometrics
+   This is a game of Econometrics
   </a>
  </li>
 </ul>
@@ -216,9 +218,33 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#relationships-of-tes">
-   Relationships of TEs
+  <a class="reference internal nav-link" href="#preparation-of-capturing-tes">
+   Preparation of Capturing TEs
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#relationships-of-tes">
+     Relationships of TEs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#constructing-a-unknown-prediction-problem">
+     Constructing a ‘Unknown’ prediction problem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-the-unknown-prediction-problem">
+   Solving the ‘Unknown’ prediction problem
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#method1-using-average-untreated-outcome-and-bias">
+     Method1 Using Average Untreated Outcome and Bias
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -233,16 +259,116 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="treatment-effects">
 <h1>Treatment Effects<a class="headerlink" href="#treatment-effects" title="Permalink to this headline">¶</a></h1>
+<p>When talking about the <a class="reference external" href="https://www.stata.com/meeting/spain16/slides/pinzon-spain16.pdf">endogeneity</a>, economists are usually little bit stressed out. In fact, endogeneity is so pervasive and annoying that every forward step in this area will be celebrated and memorized.</p>
+<p>Today, we will look into the <strong>treatment effect perspective</strong> of dealing with endogeneity.</p>
 <ul class="simple">
-<li><p>Individual treatment effect (ITE)</p></li>
-<li><p>Average treatment effect (ATE)</p></li>
-<li><p>Average treatment effect of treated (ATT)</p></li>
-<li><p>Local average treatment effect (LATE)</p></li>
-<li><p>Marginal treatment effect (MTE)</p></li>
+<li><p><strong>Individual</strong> treatment effect (ITE)</p></li>
+<li><p><strong>Average</strong> treatment effect (ATE)</p></li>
+<li><p><strong>Average</strong> treatment effect of treated (ATT)</p></li>
+<li><p><strong>Local</strong> average treatment effect (LATE)</p></li>
+<li><p><strong>Marginal</strong> treatment effect (MTE)</p></li>
 </ul>
+<div class="section" id="preparation-of-capturing-tes">
+<h2>Preparation of Capturing TEs<a class="headerlink" href="#preparation-of-capturing-tes" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="relationships-of-tes">
-<h2>Relationships of TEs<a class="headerlink" href="#relationships-of-tes" title="Permalink to this headline">¶</a></h2>
-<p>First, I will make this statement:<strong>ITE</strong> is adorable but could never be measured. <strong>ATE(ATT)</strong> is the</p>
+<h3>Relationships of TEs<a class="headerlink" href="#relationships-of-tes" title="Permalink to this headline">¶</a></h3>
+<p>First, I will make this overall statement: <strong>ITE</strong> is adorable but could never be measured directly. <strong>ATE(ATT)</strong> is an population measurement of the treatment effect, which is sensitive and sometimes weak. Furthermore, we could look into different scales of subpopulation(cohort) and derive the treatment effect accordingly, which are <strong>LATE</strong> and <strong>MTE</strong>.</p>
+<p>Here, we also give some math interpretation of the terms mentioned above. In Econometrics, we have a <a class="reference external" href="https://matheusfacure.github.io/python-causality-handbook/01-Introduction-To-Causality.html"><strong>Potential Outcome Context</strong></a>(<em>This is a wonderful book chapter for causal inference! Look through this page if you are not familiar with this context.</em>) , which defines the counterfactual in a mathematical approach.</p>
+</div>
+<div class="section" id="constructing-a-unknown-prediction-problem">
+<h3>Constructing a ‘Unknown’ prediction problem<a class="headerlink" href="#constructing-a-unknown-prediction-problem" title="Permalink to this headline">¶</a></h3>
+<p>In a God’s view, she sees all the possibilities(<strong>Potential Outcomes</strong>),</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}Y_{i} = \left \{\begin{array}{ll}
+      Y_{0i}, \text{unit i without the treatment};\\
+      Y_{1i}, \text{unit i with the treatment}.
+    \end{array} \right.\end{split}\]</div>
+<p>she then knows the <strong>Individual</strong> treatment effect (ITE) easily as,</p>
+<div class="math notranslate nohighlight">
+\[ {ITE}_{i} = Y_{1i} - Y_{0i}, \forall  i \in population \]</div>
+<p>But for us humans(econometricians), we only observe the realized outcome of <span class="math notranslate nohighlight">\(Y_{i}\)</span>, either treated or untreated, while never both. Then, we could just construct <strong>Average</strong> treatment effect (ATE) as,</p>
+<div class="math notranslate nohighlight">
+\[ATE = E[Y_{1i}-Y_{0i}]\]</div>
+<p>or an even smaller scale(only caring about the treated) called <strong>Average</strong> treatment effect of treated (ATT) as,</p>
+<div class="math notranslate nohighlight">
+\[ATT = E[Y_{1i}-Y_{0i}| D_{i} = 1]\]</div>
+<p>given that treatment notation as <span class="math notranslate nohighlight">\(D_{i} = \left \{\begin{array}{ll}
+      1, \text{unit i is treated};\\
+      0, \text{otherwise}.\end{array} \right.\)</span>. If we look in to the details, we could find the real barrier of this estimation method, the unknown of untreated potential outcome of the treated group.</p>
+<div class="math notranslate nohighlight">
+\[ATT = E[Y_{1i}-Y_{0i}| D_{i} = 1] = \underbrace{E[Y_{1i}| D_{i} = 1]}_{E[Y_{i}| D_{i} = 1], observed} - \underbrace{E[Y_{0i}| D_{i} = 1]}_{unknown} \]</div>
+<p>In this circumstance, we could say the ATE estimation problem is now reduced to a <span class="math notranslate nohighlight">\(E[Y_{0i}| D_{i} = 1]\)</span> prediction problem. The better prediction we get of “unknown” part, the exacter estimation we will get on ATE.</p>
+</div>
+</div>
+<div class="section" id="solving-the-unknown-prediction-problem">
+<h2>Solving the ‘Unknown’ prediction problem<a class="headerlink" href="#solving-the-unknown-prediction-problem" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we will look into some methods of predicting the <strong>‘Unknown’(<span class="math notranslate nohighlight">\(E[Y_{0i}| D_{i} = 1]\)</span>)</strong> in previous section. Some methods may seems silly at first glimpse, but this procedure shows the essence and <strong>foundation</strong> of the whole theories.</p>
+<figure>
+<img src='https://149662705.v2.pressablecdn.com/wp-content/uploads/2020/12/21cf4a_830a45b8c4d04c5b9ffc674c905000f9_mv2_d_1676_1300_s_2.jpg' alt="" width=1300 height=1000 />
+<figcaption align = "center"><b>Always...always pay enough attention to bias!</b></figcaption>
+</figure><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import modules</span>
+<span class="kn">from</span> <span class="nn">matplotlib_venn</span> <span class="kn">import</span> <span class="n">venn2</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="c1"># depict venn diagram</span>
+<span class="n">venn2</span><span class="p">(</span><span class="n">subsets</span> <span class="o">=</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">set_labels</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;treated(obs=50)&#39;</span><span class="p">,</span> <span class="s1">&#39;untreated(obs=40)&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/treatmenteffects_3_0.png" src="_images/treatmenteffects_3_0.png" />
+</div>
+</div>
+<div class="section" id="method1-using-average-untreated-outcome-and-bias">
+<h3>Method1 Using Average Untreated Outcome and Bias<a class="headerlink" href="#method1-using-average-untreated-outcome-and-bias" title="Permalink to this headline">¶</a></h3>
+<p>We may use a <a class="reference external" href="https://www.geeksforgeeks.org/how-to-create-and-customize-venn-diagrams-in-python/">Venn diagram</a> to illustrate the story. First, we divide the population into two groups,’treated’ and ‘untreated’. Then, the God’s view of data is like the table below.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>potential <span class="math notranslate nohighlight">\(Y_{?i}\)</span></p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(D_{i}= 1 \)</span></p></th>
+<th class="text-align:right head"><p><span class="math notranslate nohighlight">\(D_{i} = 0\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>treated</p></td>
+<td class="text-align:center"><p>$E[Y_{1i}</p></td>
+<td class="text-align:right"><p>D_{i} = 1]$</p></td>
+</tr>
+<tr class="row-odd"><td><p>untreated</p></td>
+<td class="text-align:center"><p>$E[Y_{0i}</p></td>
+<td class="text-align:right"><p>D_{i} = 1]$</p></td>
+</tr>
+</tbody>
+</table>
+<p>What we(econometricians) actually observe is the table below, with 2 missing parts as blanks.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>REAL <span class="math notranslate nohighlight">\(Y_{i}\)</span></p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(D_{i}= 1 \)</span></p></th>
+<th class="text-align:right head"><p><span class="math notranslate nohighlight">\(D_{i} = 0\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>treated</p></td>
+<td class="text-align:center"><p>$E[Y_{i}</p></td>
+<td class="text-align:right"><p>D_{i} = 1]$</p></td>
+</tr>
+<tr class="row-odd"><td><p>untreated</p></td>
+<td class="text-align:center"><p></p></td>
+<td class="text-align:right"><p>$E[Y_{i}</p></td>
+</tr>
+</tbody>
+</table>
+<p>Now, an intuitive way of predicting <strong>‘Unknown’(<span class="math notranslate nohighlight">\(E[Y_{0i}| D_{i} = 1]\)</span>)</strong> is using <span class="math notranslate nohighlight">\(E[Y_{i}|D_{i} = 0]\)</span> instead, which is available in hand. In this way, we can separate the result into two parts.</p>
+<div class="math notranslate nohighlight">
+\[\underbrace{E[Y_{i}|D_{i} = 1]-E[Y_{i}|D_{i} = 0]}_{direct-difference} = \underbrace{(E[Y_{i}|D_{i} = 1]-E[Y_{0i}|D_{i} = 1])}_{ATT} + \underbrace{(E[Y_{0i}|D_{i} = 1]-E[Y_{i}| D_{i} = 0])}_{Bias} \]</div>
+<p>From the breakdown, we could see that ATT is properly estimated if and only if <span class="math notranslate nohighlight">\(Bias = 0\)</span>. This holds when <span class="math notranslate nohighlight">\(E[Y_{0i}|D_{i} = 1] = E[Y_{i}| D_{i} = 0]\)</span>, which indicates the pre-treatment mean of two groups are the same. In practice, this situation is mostly constructed by designing a [Randomised Controlled Trials (RCT)] (<a class="reference external" href="https://en.wikipedia.org/wiki/Randomized_controlled_trial">https://en.wikipedia.org/wiki/Randomized_controlled_trial</a>). <strong>The RCT magic ensures the direct-difference to be causal effect.</strong></p>
+<img src='https://emj.bmj.com/content/emermed/20/2/164/F1.medium.gif'>
+<p>The image is from a <a class="reference external" href="https://emj.bmj.com/content/20/2/164">study</a> on RCT principles.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipystata</span>
@@ -270,6 +396,7 @@ display &quot;Hello, I am printed in Stata.&quot;
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, I am printed in Stata.
 </pre></div>
+</div>
 </div>
 </div>
 </div>

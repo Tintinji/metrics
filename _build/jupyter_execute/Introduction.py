@@ -1,20 +1,22 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # This is the game with Econometrics
+# # This is a game of Econometrics
 # 
-# I studied ECON5106(Advanced Applied Econometrics) in UiO, fall 2021.Here are some notes and ideas from the lectures and readings
+# I studied ECON5106(Advanced Applied Econometrics) in UiO, fall 2021.Here are some notes and ideas from the lectures and readings.
 # 
-# The materials are heavily based on the course delivered by Zhiyang,Jia, from Statistics Norway.
+# > The materials are heavily based on the course delivered by Zhiyang, Jia, from Statistics Norway.
+# 
+# <img src = 'Endogeneity.png'>
 # 
 # ## Here is a list of the content in this book.
 # 
 # ### Maximum Likelihood
 # 
 # -   Underlying principle of ML(discrete case without a Likelihood function)
-# -   Construct a likelihood function, derive the ML estimator
+# -   Construct a likelihood function, derive the **ML estimator**
 # -   Find out the distribution of the estimator
-# -   Delta method(idea and applications)
+# -   **Delta method(idea and applications)**
 # -   3 tests application(Wald,LM,LR)
 # 
 # ### Generalized Moment Methods(GMM)
@@ -32,6 +34,8 @@
 # I found this [**Funny CAT**](https://datascienceparichay.com/article/insert-image-in-a-jupyter-notebook/) when reviewing the markdown syntax.
 # 
 # <img src="https://i0.wp.com/datascienceparichay.com/wp-content/uploads/2021/03/no_regrets_cat.jpg" width=300 height=300 />
+# 
+# And [an important site](https://www.markdownguide.org/basic-syntax) for markdown is also listed here.
 
 # ### Non-parametric Methods
 # 
@@ -65,13 +69,48 @@
 # </figure>
 
 # ### Partial Identification
+# 
+# - The difference between **point** identification and **partial** identification.
+# - Give examples of partial identification
+# - Understand how the different bounding assumptions
+# - Worst-Case (No-assumptions) 
+# - MTS and MTR 
+# - MIV 
+# - Understand how one can construct **confidence intervals** for a partial identified model
 
-# ### Local Average Treatment Effects(LATE)
+# ### Local Average Treatment Effects (LATE)
+# 
+# - How IV addresses selection bias(**homogeneous/heterogeneous** treatment effects)
+# - Interpret Local Average Treatment Effect (LATE) 
+# - Identify always takers, never takers, compliers, defiers(The tabular method)
+# - What is monotonicity assumption? Why we need this?
+# - What is independence assumption? exclusion restriction ? 
+# - How to measure instrument relevance (1st stage)?
+# 
+# 
+# - Estimate not only effects but also **counterfactual outcome distributions** 
+# - Average causal response ? 
+# - IV produces weighted averages of ordered treatment effects 
+# - Covariates are naturally incorporated and 2SLS probably approximates causal CEF for compliers (but weighting not always innocuous)
 
-# ### Selection Models
+# ### Selection Models (Censoring & Truncation)
+# 
+# - Difference between **censoring** and **truncation**  
+# - ML approaches to correcting for the resulting bias 
+# - Correctly interpret results and construct **marginal effects**
+# - Understand the **selection model** and it applications 
+# - 2-step, **ML estimation** 
+# - Nature of **identification**
 
-# ### Marginal Treatment Effects(MTE)
+# ### Marginal Treatment Effects (MTE)
+# 
+# **Selection models and treatment effect estimation**
+# 
+# 
 
 # ### DID and Event studies
+# 
+# 
+# 
 
 # ### Machine Learning Topics
