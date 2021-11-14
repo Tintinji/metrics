@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>This is the game with Econometrics &#8212; Tintin And Metrics</title>
+    <title>This is a game of Econometrics &#8212; Tintin And Metrics</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -93,7 +93,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1 current">
   <a class="reference internal" href="#">
-   This is the game with Econometrics
+   This is a game of Econometrics
   </a>
  </li>
 </ul>
@@ -254,17 +254,17 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#local-average-treatment-effects-late">
-     Local Average Treatment Effects(LATE)
+     Local Average Treatment Effects (LATE)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#selection-models">
-     Selection Models
+    <a class="reference internal nav-link" href="#selection-models-censoring-truncation">
+     Selection Models (Censoring &amp; Truncation)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#marginal-treatment-effects-mte">
-     Marginal Treatment Effects(MTE)
+     Marginal Treatment Effects (MTE)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -290,19 +290,22 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="this-is-the-game-with-econometrics">
-<h1>This is the game with Econometrics<a class="headerlink" href="#this-is-the-game-with-econometrics" title="Permalink to this headline">¶</a></h1>
-<p>I studied ECON5106(Advanced Applied Econometrics) in UiO, fall 2021.Here are some notes and ideas from the lectures and readings</p>
-<p>The materials are heavily based on the course delivered by Zhiyang,Jia, from Statistics Norway.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="this-is-a-game-of-econometrics">
+<h1>This is a game of Econometrics<a class="headerlink" href="#this-is-a-game-of-econometrics" title="Permalink to this headline">¶</a></h1>
+<p>I studied ECON5106(Advanced Applied Econometrics) in UiO, fall 2021.Here are some notes and ideas from the lectures and readings.</p>
+<blockquote>
+<div><p>The materials are heavily based on the course delivered by Zhiyang, Jia, from Statistics Norway.</p>
+</div></blockquote>
+<img src = 'Endogeneity.png'>
 <div class="section" id="here-is-a-list-of-the-content-in-this-book">
 <h2>Here is a list of the content in this book.<a class="headerlink" href="#here-is-a-list-of-the-content-in-this-book" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="maximum-likelihood">
 <h3>Maximum Likelihood<a class="headerlink" href="#maximum-likelihood" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Underlying principle of ML(discrete case without a Likelihood function)</p></li>
-<li><p>Construct a likelihood function, derive the ML estimator</p></li>
+<li><p>Construct a likelihood function, derive the <strong>ML estimator</strong></p></li>
 <li><p>Find out the distribution of the estimator</p></li>
-<li><p>Delta method(idea and applications)</p></li>
+<li><p><strong>Delta method(idea and applications)</strong></p></li>
 <li><p>3 tests application(Wald,LM,LR)</p></li>
 </ul>
 </div>
@@ -318,7 +321,9 @@
 <li><p>Explain the relationship between i) GMM and 2SLS, and ii) GMM and MLE.</p></li>
 </ul>
 <img src="https://www.abbreviations.com/images/1731506_GMM.png" alt=""><p>I found this <a class="reference external" href="https://datascienceparichay.com/article/insert-image-in-a-jupyter-notebook/"><strong>Funny CAT</strong></a> when reviewing the markdown syntax.</p>
-<img src="https://i0.wp.com/datascienceparichay.com/wp-content/uploads/2021/03/no_regrets_cat.jpg" width=300 height=300 /></div>
+<img src="https://i0.wp.com/datascienceparichay.com/wp-content/uploads/2021/03/no_regrets_cat.jpg" width=300 height=300 />
+<p>And <a class="reference external" href="https://www.markdownguide.org/basic-syntax">an important site</a> for markdown is also listed here.</p>
+</div>
 <div class="section" id="non-parametric-methods">
 <h3>Non-parametric Methods<a class="headerlink" href="#non-parametric-methods" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -356,15 +361,45 @@
 </figure></div>
 <div class="section" id="partial-identification">
 <h3>Partial Identification<a class="headerlink" href="#partial-identification" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The difference between <strong>point</strong> identification and <strong>partial</strong> identification.</p></li>
+<li><p>Give examples of partial identification</p></li>
+<li><p>Understand how the different bounding assumptions</p></li>
+<li><p>Worst-Case (No-assumptions)</p></li>
+<li><p>MTS and MTR</p></li>
+<li><p>MIV</p></li>
+<li><p>Understand how one can construct <strong>confidence intervals</strong> for a partial identified model</p></li>
+</ul>
 </div>
 <div class="section" id="local-average-treatment-effects-late">
-<h3>Local Average Treatment Effects(LATE)<a class="headerlink" href="#local-average-treatment-effects-late" title="Permalink to this headline">¶</a></h3>
+<h3>Local Average Treatment Effects (LATE)<a class="headerlink" href="#local-average-treatment-effects-late" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>How IV addresses selection bias(<strong>homogeneous/heterogeneous</strong> treatment effects)</p></li>
+<li><p>Interpret Local Average Treatment Effect (LATE)</p></li>
+<li><p>Identify always takers, never takers, compliers, defiers(The tabular method)</p></li>
+<li><p>What is monotonicity assumption? Why we need this?</p></li>
+<li><p>What is independence assumption? exclusion restriction ?</p></li>
+<li><p>How to measure instrument relevance (1st stage)?</p></li>
+<li><p>Estimate not only effects but also <strong>counterfactual outcome distributions</strong></p></li>
+<li><p>Average causal response ?</p></li>
+<li><p>IV produces weighted averages of ordered treatment effects</p></li>
+<li><p>Covariates are naturally incorporated and 2SLS probably approximates causal CEF for compliers (but weighting not always innocuous)</p></li>
+</ul>
 </div>
-<div class="section" id="selection-models">
-<h3>Selection Models<a class="headerlink" href="#selection-models" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="selection-models-censoring-truncation">
+<h3>Selection Models (Censoring &amp; Truncation)<a class="headerlink" href="#selection-models-censoring-truncation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Difference between <strong>censoring</strong> and <strong>truncation</strong></p></li>
+<li><p>ML approaches to correcting for the resulting bias</p></li>
+<li><p>Correctly interpret results and construct <strong>marginal effects</strong></p></li>
+<li><p>Understand the <strong>selection model</strong> and it applications</p></li>
+<li><p>2-step, <strong>ML estimation</strong></p></li>
+<li><p>Nature of <strong>identification</strong></p></li>
+</ul>
 </div>
 <div class="section" id="marginal-treatment-effects-mte">
-<h3>Marginal Treatment Effects(MTE)<a class="headerlink" href="#marginal-treatment-effects-mte" title="Permalink to this headline">¶</a></h3>
+<h3>Marginal Treatment Effects (MTE)<a class="headerlink" href="#marginal-treatment-effects-mte" title="Permalink to this headline">¶</a></h3>
+<p><strong>Selection models and treatment effect estimation</strong></p>
 </div>
 <div class="section" id="did-and-event-studies">
 <h3>DID and Event studies<a class="headerlink" href="#did-and-event-studies" title="Permalink to this headline">¶</a></h3>
