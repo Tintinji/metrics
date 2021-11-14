@@ -42,6 +42,8 @@
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -107,11 +109,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="XKCD_plots.html">
-   XKCD plots in Matplotlib
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="treatmenteffects.html">
    Treatment Effects
   </a>
@@ -157,9 +154,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/Introduction.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -177,7 +174,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FIntroduction.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -193,6 +190,23 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/Introduction.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -207,6 +221,63 @@
   <a class="reference internal nav-link" href="#here-is-a-list-of-the-content-in-this-book">
    Here is a list of the content in this book.
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#maximum-likelihood">
+     Maximum Likelihood
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generalized-moment-methods-gmm">
+     Generalized Moment Methods(GMM)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#non-parametric-methods">
+     Non-parametric Methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bootstrapping-methods">
+     Bootstrapping Methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unconfoundedness">
+     Unconfoundedness
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#partial-identification">
+     Partial Identification
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#local-average-treatment-effects-late">
+     Local Average Treatment Effects(LATE)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#selection-models">
+     Selection Models
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#marginal-treatment-effects-mte">
+     Marginal Treatment Effects(MTE)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#did-and-event-studies">
+     DID and Event studies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#machine-learning-topics">
+     Machine Learning Topics
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -222,32 +293,85 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="this-is-the-game-with-econometrics">
 <h1>This is the game with Econometrics<a class="headerlink" href="#this-is-the-game-with-econometrics" title="Permalink to this headline">¶</a></h1>
 <p>I studied ECON5106(Advanced Applied Econometrics) in UiO, fall 2021.Here are some notes and ideas from the lectures and readings</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
 <p>The materials are heavily based on the course delivered by Zhiyang,Jia, from Statistics Norway.</p>
-</div>
 <div class="section" id="here-is-a-list-of-the-content-in-this-book">
 <h2>Here is a list of the content in this book.<a class="headerlink" href="#here-is-a-list-of-the-content-in-this-book" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p>Maximum likelihood
-*Underlying principle of ML(discrete case without a Likelihood function)
-*Construct a likelihood function, derive the ML estimator
-*Find out the distribution of the estimator
-*Delta method(idea and applications)
-*3 tests application(Wald,LM,LR)</p></li>
-</ol>
-<p>2.Generalized moment methods
-*Underlying principle of MM and GMM
-*Analysis the notion of under-, exact, and over-identification
-*Analysis the role of the weight matrix
-*Analysis the notion of efcient GMM, and how this is obtained
-*Analysis the Wald and Hansen J-test
-*Be able to determine the functions g(), g_N(), and estimator”βGMM”for specific models, such as the linear regression model.
-*Explain the relationship between i) GMM and 2SLS, and ii) GMM and MLE.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="n">mc</span><span class="o">^</span><span class="mi">2</span>
-</pre></div>
+<div class="section" id="maximum-likelihood">
+<h3>Maximum Likelihood<a class="headerlink" href="#maximum-likelihood" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Underlying principle of ML(discrete case without a Likelihood function)</p></li>
+<li><p>Construct a likelihood function, derive the ML estimator</p></li>
+<li><p>Find out the distribution of the estimator</p></li>
+<li><p>Delta method(idea and applications)</p></li>
+<li><p>3 tests application(Wald,LM,LR)</p></li>
+</ul>
 </div>
-<p>Check out the content pages bundled with this sample book to see more.</p>
+<div class="section" id="generalized-moment-methods-gmm">
+<h3>Generalized Moment Methods(GMM)<a class="headerlink" href="#generalized-moment-methods-gmm" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Underlying principle of MM and GMM</p></li>
+<li><p>Analysis the notion of under-, exact, and over-identification</p></li>
+<li><p>Analysis the role of the weight matrix</p></li>
+<li><p>Analysis the notion of efcient GMM, and how this is obtained</p></li>
+<li><p>Analysis the Wald and Hansen J-test</p></li>
+<li><p>Be able to determine the functions g(), g_N(), and estimator“<span class="math notranslate nohighlight">\(\beta_{GMM}\)</span>”for specific models, such as the linear regression model.</p></li>
+<li><p>Explain the relationship between i) GMM and 2SLS, and ii) GMM and MLE.</p></li>
+</ul>
+<img src="https://www.abbreviations.com/images/1731506_GMM.png" alt=""><p>I found this <a class="reference external" href="https://datascienceparichay.com/article/insert-image-in-a-jupyter-notebook/"><strong>Funny CAT</strong></a> when reviewing the markdown syntax.</p>
+<img src="https://i0.wp.com/datascienceparichay.com/wp-content/uploads/2021/03/no_regrets_cat.jpg" width=300 height=300 /></div>
+<div class="section" id="non-parametric-methods">
+<h3>Non-parametric Methods<a class="headerlink" href="#non-parametric-methods" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Tell the difference between a <strong>parametric</strong>,<strong>semi-parametric</strong> and <strong>nonparametric</strong> model.</p></li>
+<li><p>The curse of dimensionality</p></li>
+<li><p>Histogram &amp; Kernel density estimators</p></li>
+<li><p>Local constant, local linear regression</p></li>
+<li><p>Partial linear regression model</p></li>
+<li><p>The principles of bandwidth selection &amp; <strong>Bias-Variance</strong> trade-off</p></li>
+</ul>
+</div>
+<div class="section" id="bootstrapping-methods">
+<h3>Bootstrapping Methods<a class="headerlink" href="#bootstrapping-methods" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Give an account for the principle of bootstrapping method.</p></li>
+<li><p>Understand and can construct the bootstrap variance and confidence interval.</p></li>
+<li><p>Understand and can perform hypothesis testing using bootstrap method.</p></li>
+<li><p>Explain the notion of bias correction.</p></li>
+<li><p>Understand the diferent bootstrap procedures for regression models.</p></li>
+<li><p>Basic grasp of the limitations of the bootstrap method.</p></li>
+</ul>
+</div>
+<div class="section" id="unconfoundedness">
+<h3>Unconfoundedness<a class="headerlink" href="#unconfoundedness" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>(Non-parametric) regression approaches to treatment effect estimation that rely on selection on observables</p></li>
+<li><p><strong>Matching</strong> as a weighting estimator</p></li>
+<li><p>Role of <strong>common support</strong> and extrapolation</p></li>
+<li><p>Balancing property of the propensity score</p></li>
+<li><p>Relation between matching and OLS</p></li>
+</ul>
+<figure>
+<img src="matching.jpeg" alt="" width=100 height=100 />
+<figcaption align = "center"><b>This is perfect illustration of matching...</b></figcaption>
+</figure></div>
+<div class="section" id="partial-identification">
+<h3>Partial Identification<a class="headerlink" href="#partial-identification" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="local-average-treatment-effects-late">
+<h3>Local Average Treatment Effects(LATE)<a class="headerlink" href="#local-average-treatment-effects-late" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="selection-models">
+<h3>Selection Models<a class="headerlink" href="#selection-models" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="marginal-treatment-effects-mte">
+<h3>Marginal Treatment Effects(MTE)<a class="headerlink" href="#marginal-treatment-effects-mte" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="did-and-event-studies">
+<h3>DID and Event studies<a class="headerlink" href="#did-and-event-studies" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="machine-learning-topics">
+<h3>Machine Learning Topics<a class="headerlink" href="#machine-learning-topics" title="Permalink to this headline">¶</a></h3>
+</div>
 </div>
 <div class="toctree-wrapper compound">
 </div>
