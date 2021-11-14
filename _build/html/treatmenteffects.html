@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>This is the game with Econometrics &#8212; Tintin And Metrics</title>
+    <title>Treatment Effects &#8212; Tintin And Metrics</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,7 +51,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Markdown Files" href="markdown.html" />
+    <link rel="prev" title="Content with notebooks" href="notebooks.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -89,13 +89,13 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
    This is the game with Econometrics
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="markdown.html">
    Markdown Files
@@ -106,9 +106,9 @@
    Content with notebooks
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="XKCD_plots.html">
-   XKCD plots in Matplotlib
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Treatment Effects
   </a>
  </li>
 </ul>
@@ -152,9 +152,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/treatmenteffects.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -172,7 +172,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftreatmenteffects.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -188,6 +188,23 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/treatmenteffects.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -199,8 +216,8 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#here-is-a-list-of-the-content-in-this-book">
-   Here is a list of the content in this book.
+  <a class="reference internal nav-link" href="#relationships-of-tes">
+   Relationships of TEs
   </a>
  </li>
 </ul>
@@ -214,37 +231,48 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="this-is-the-game-with-econometrics">
-<h1>This is the game with Econometrics<a class="headerlink" href="#this-is-the-game-with-econometrics" title="Permalink to this headline">¶</a></h1>
-<p>I studied ECON5106(Advanced Applied Econometrics) in UiO, fall 2021.Here are some notes and ideas from the lectures and readings</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The materials are heavily based on the course delivered by Zhiyang,Jia, from Statistics Norway.</p>
-</div>
-<div class="section" id="here-is-a-list-of-the-content-in-this-book">
-<h2>Here is a list of the content in this book.<a class="headerlink" href="#here-is-a-list-of-the-content-in-this-book" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p>Maximum likelihood
-*Underlying principle of ML(discrete case without a Likelihood function)
-*Construct a likelihood function, derive the ML estimator
-*Find out the distribution of the estimator
-*Delta method(idea and applications)
-*3 tests application(Wald,LM,LR)</p></li>
-</ol>
-<p>2.Generalized moment methods
-*Underlying principle of MM and GMM
-*Analysis the notion of under-, exact, and over-identification
-*Analysis the role of the weight matrix
-*Analysis the notion of efcient GMM, and how this is obtained
-*Analysis the Wald and Hansen J-test
-*Be able to determine the functions g(), g_N(), and estimator”βGMM”for specific models, such as the linear regression model.
-*Explain the relationship between i) GMM and 2SLS, and ii) GMM and MLE.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="n">mc</span><span class="o">^</span><span class="mi">2</span>
+  <div class="tex2jax_ignore mathjax_ignore section" id="treatment-effects">
+<h1>Treatment Effects<a class="headerlink" href="#treatment-effects" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Individual treatment effect (ITE)</p></li>
+<li><p>Average treatment effect (ATE)</p></li>
+<li><p>Average treatment effect of treated (ATT)</p></li>
+<li><p>Local average treatment effect (LATE)</p></li>
+<li><p>Marginal treatment effect (MTE)</p></li>
+</ul>
+<div class="section" id="relationships-of-tes">
+<h2>Relationships of TEs<a class="headerlink" href="#relationships-of-tes" title="Permalink to this headline">¶</a></h2>
+<p>First, I will make this statement:<strong>ITE</strong> is adorable but could never be measured. <strong>ATE(ATT)</strong> is the</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipystata</span>
+<span class="kn">from</span> <span class="nn">ipystata.config</span> <span class="kn">import</span> <span class="n">config_stata</span>  
+<span class="c1"># https://github.com/TiesdeKok/ipystata/tree/master/#setupunix</span>
+<span class="c1"># This shows how to find the &quot;Stata executable&quot; in a Unix(MacOS) system</span>
+<span class="n">config_stata</span><span class="p">(</span><span class="s2">&quot;/Applications/Stata/StataSE.app/Contents/MacOS/StataSE&quot;</span><span class="p">,</span> <span class="n">force_batch</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  
 </pre></div>
 </div>
-<p>Check out the content pages bundled with this sample book to see more.</p>
 </div>
-<div class="toctree-wrapper compound">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>IPyStata is loaded in batch mode.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">stata</span>
+
+display &quot;Hello, I am printed in Stata.&quot;  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, I am printed in Stata.
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -272,13 +300,13 @@
               
         
             <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="markdown.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Markdown Files</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="notebooks.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Content with notebooks</p>
+        </div>
     </a>
 </div>
         
